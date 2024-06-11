@@ -1,19 +1,25 @@
 <?php
-class Conexion{
 
-    Private $url = "mysql:host=localhost;dbname=gestionferreteria";
-    Private $usuario = "root";
-    Private $contrasenia = "";
+class Conexion {
 
-    public function __construct(){
-        try
-        {
-           $this->conexion = new PDO ($this->url, $this->usuario, $this->contrasenia);
+    private static $instance = null;
+    private $conn;
+    
+    private function __construct(){
+        $this ->conn = new PDO("mysql:host=localhost;dbname=gestionferreteria", "root", "");
+
+    }
+
+    public static function getInstance(){
+
+        if (!self::$instance){
+            self::$instance = new Conexion();
         }
-        catch (PDOException $ex)
-        {
-            echo "Error de conexion: " . $ex->getMessage();
-        }
-    } 
+
+        return self::$instance;
+    }
+    
+    public function getConnection(){
+        return $this->conn;
+    }
 }
-
