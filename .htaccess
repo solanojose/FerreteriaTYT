@@ -1,9 +1,15 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
-     RewriteBase /Ferreteria_TYT/
+    # Ajusta la base según tu estructura de carpetas
+    # Si tu aplicación se encuentra en una subcarpeta, descomenta la siguiente línea y ajusta la ruta
+    # RewriteBase /Ferreteria_TYT/
 
+    # Verifica si el archivo solicitado no existe como archivo físico
     RewriteCond %{REQUEST_FILENAME} !-f
+
+    # Verifica si el archivo solicitado no existe como directorio
     RewriteCond %{REQUEST_FILENAME} !-d
+
+    # Redirige todas las solicitudes a index.php y pasa la ruta como parámetro GET llamado "ruta"
     RewriteRule ^(.*)$ index.php?ruta=$1 [QSA,L]
-    
 </IfModule>
