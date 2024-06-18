@@ -21,7 +21,7 @@ class TrabajadorController
             if ($verificar) {
                 if ($contrasenia == $verificar['contrasenia']){
                 $_SESSION['usuario'] = $verificar; 
-                    header('Location: leer');
+                    header('Location: inicio');
                 }else {
                     echo "<script>alert ('Contraseña incorrecta !')</script>";
                     require 'app/views/login.php';
@@ -39,6 +39,6 @@ class TrabajadorController
     public function leer()
     {
         $trabajadores = $this->model->leerTodas();
-        require 'app/views/leer.php';
+        require 'app/views/inicio.php';
     }
 }

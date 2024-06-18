@@ -6,7 +6,7 @@
 </head>
 
 <body>
-    
+
     <h1>Lista de Trabajadores</h1>
     <?php if (empty($trabajadores)): ?>
         <p>No hay trabajadores disponibles.</p>

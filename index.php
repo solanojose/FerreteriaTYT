@@ -22,7 +22,7 @@ switch ($request) {
         $trabajadorController->login();
         break;
 
-    case '/FerreteriaTYT/leer':
+    case '/FerreteriaTYT/inicio':
         $trabajadorController->leer();
         break;
 
